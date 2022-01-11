@@ -8,25 +8,47 @@ export class UserInfo {
 export class RenderStructure {
   fieldType?: string = typeof '';
   type? = typeof '';
-  fieldValue: unknown;
+  fieldValue: any;
+  
+}
+
+export class MedicalRecordBlockStructure {
+  constructor() {
+    this.Fields = [];
+  }
+  Id: Guid;
+  Order?: number = 0;
+  Name: string;
+  DisplayName: string;
+  FieldAligned?: boolean = false;
+  Fields: MedicalRecordFieldStructure[];
 }
 
 export class MedicalRecordFieldStructure {
   Id: Guid;
   Order?: number = 0;
   Name: string;
-  DisplayName: string;
+  PlaceHolder?: string = '';
   typeName: string = typeof '';
-  Value?: string = '';
+  Value?: any = '';
+  maxSize?: number = -1;
+  isRequired?: boolean = false;
+  Aligned?: boolean = false;
+  Preffix?: string = '';
+  Suffix?: string = '';
 }
 
+
+
 export class MedicalRecordSectionStructure {
+  constructor() {
+    this.Blocks = [];
+  }
   Id: Guid;
   Order?: number = 0;
   Name?: string = '';
   DisplayName?: string = '';
-  Fields?: MedicalRecordFieldStructure[] = [new MedicalRecordFieldStructure()];
-  SubSections?: [] = [];
+  Blocks: MedicalRecordBlockStructure[];
 }
 
 export class MedicalRecordStructure {
