@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@Controllers/*": [
+          "src/Controllers/*",
+        ],
+        "@Tests/*": [
+          "src/test/*",
+        ],
+        "@Services/*": [
+          "src/Services/*",
+        ],
+        "@shared/*": [
+          "src/Shared/*",
+        ],
+      }
+    }
+  }
+  

@@ -1,17 +1,12 @@
 import { Guid } from 'guid-typescript';
 
-export class UserInfo {
-  given_name?: string = '';
-  email?: string = '';
+export interface IUserInfo {
+  sub: string;
+  given_name: string;
+  preferred_username: string;
+  membership: string[];
+  email: string;
 }
-
-export class RenderStructure {
-  fieldType?: string = typeof '';
-  type? = typeof '';
-  fieldValue: any;
-  
-}
-
 export class MedicalRecordBlockStructure {
   constructor() {
     this.Fields = [];
@@ -23,7 +18,6 @@ export class MedicalRecordBlockStructure {
   FieldAligned?: boolean = false;
   Fields: MedicalRecordFieldStructure[];
 }
-
 export class MedicalRecordFieldStructure {
   Id: Guid;
   Order?: number = 0;
@@ -37,9 +31,6 @@ export class MedicalRecordFieldStructure {
   Preffix?: string = '';
   Suffix?: string = '';
 }
-
-
-
 export class MedicalRecordSectionStructure {
   constructor() {
     this.Blocks = [];
@@ -58,6 +49,6 @@ export class MedicalRecordStructure {
 
   Id: Guid;
   CreatedDate: Date;
-  CreatedBy: UserInfo;
+  CreatedBy: IUserInfo;
   Sections: MedicalRecordSectionStructure[];
 }
