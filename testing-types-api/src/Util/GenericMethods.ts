@@ -1,5 +1,5 @@
 export class GenericMethods {
-  convertValue(typeName: string, value: string): any {
+  static convertValue(typeName: string, value: string): any {
     type Convert<T> = T extends 'number'
       ? number
       : T extends 'boolean'
